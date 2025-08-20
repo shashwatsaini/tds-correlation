@@ -26,12 +26,13 @@ df = pd.DataFrame(data, columns=["Segment", "PurchaseAmount"])
 sns.set_style("whitegrid")
 sns.set_context("talk")
 
-plt.figure(figsize=(8, 8))  # 8x8 inches at dpi=64 = 512x512 pixels
-ax = sns.boxplot(x="Segment", y="PurchaseAmount", data=df,
-                 palette="Set2")
+# Figure size: 8x8 inches, dpi=64 → exactly 512x512 pixels
+plt.figure(figsize=(8, 8), dpi=64)
+ax = sns.boxplot(x="Segment", y="PurchaseAmount", data=df, palette="Set2")
 
 ax.set_title("Purchase Amount Distribution by Customer Segment", fontsize=16, weight="bold")
 ax.set_xlabel("Customer Segment", fontsize=14)
 ax.set_ylabel("Purchase Amount ($)", fontsize=14)
 
-plt.savefig("chart.png", dpi=64, bbox_inches="tight")
+# Save chart at exactly 512x512 pixels
+plt.savefig("chart.png", dpi=64)  # no bbox_inches
